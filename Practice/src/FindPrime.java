@@ -9,26 +9,17 @@ public class FindPrime {
 	}
 	
 	private int answer() {
-		int[] a = new int[1001];
-		int[] b = new int[101];
-		int Prime=0;
+		int count = 0;
+		int res = 0;
 		
-		for (int i=1; i<1001; i++) {
-			a[i] = i;
-		}
-
-		int listPos=1;
-		int bPos=1;
-		while (Prime<100){
-			if (isPrime(a[listPos])) {
-				Prime++;
-				b[bPos]=a[listPos];
-				bPos++;
+		for (int listPos=2; count<100; listPos++) {
+			if (isPrime(listPos)) {
+				count++;
+				if (count == 100) res = listPos;
 			}
-			listPos++;
 		}
 		
-		return b[100];
+		return res;
 	}
 	
 	private boolean isPrime(int n) {
