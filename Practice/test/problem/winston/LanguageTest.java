@@ -10,7 +10,6 @@ public class LanguageTest {
 		while (N > 0) {
 			M = (M * 10) + (N % 10);
 			N /= 10;
-			System.out.println(M);
 		}
 		
 		System.out.println(M);
@@ -21,5 +20,11 @@ public class LanguageTest {
 		int N = 123456789;
 		int M = Integer.parseInt(new StringBuilder(""+N).reverse().toString());
 		System.out.println(M);
+	}
+	
+	@Test
+	public void test3() {
+		String f = "hello.txt";
+		System.out.println(f.matches(".*txt$"));
 	}
 }
