@@ -1,3 +1,4 @@
+package problem.winston;
 
 public class FindPrime {
 	public static void main(String[] args) {
