@@ -7,18 +7,15 @@ import java.util.Queue;
 
 
 public class Maze {
-	public static ArrayList<String> path = new ArrayList<String>();
-	
 	public List<String> dfs(Room start, Room end) {
-		if(start == null) {
-			path.remove(path.size() - 1);
-			return null;
-		}
-		for(Room room : start.getNeighbors()) {
-			if(!path.contains(end.getName())) {
-				path.add(start.getName());
-				dfs(room, end);
-			}
+		if(start == null) return null;
+		List<String> path = new ArrayList<String>();
+		for(Room child : start.getNeighbors()) {
+			path.add(child.getName());
+			if(path.contains(end.getName()))
+				return path;
+			path.addAll(dfs(child, end));
+			//Add something here to remove stuff from path if it doesn't work.
 		}
 		return path;
 	}
