@@ -18,7 +18,7 @@ def solution_o_n(a, n):
     mininx = prev[i]
     minval = dp[mininx] + penalty(abs(a[i] - a[mininx]))
     while prev[i] < i and a[i] - a[prev[i]] > 0:
-      if (dp[prev[i]] + penalty(abs(a[i] - a[prev[i]])) > 0):
+      if (dp[prev[i]] + penalty(abs(a[i] - a[prev[i]])) <= minval):
         mininx = prev[i]
         minval = dp[prev[i]] + penalty(abs(a[i] - a[prev[i]]))
       
